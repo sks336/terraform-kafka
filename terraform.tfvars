@@ -1,0 +1,6 @@
+aws_region="ap-southeast-1"
+instance_type="t2.small"
+master_instance_type="t2.medium"
+ami_image = "ami-0634a28456711e912"
+pem_file = "/Users/sachin/work/keys/aws/sjlearning_2024/sachin-kp.pem"
+pem_key_name = "sachin-kp"
