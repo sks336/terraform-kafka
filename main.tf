@@ -151,6 +151,7 @@ resource "null_resource" "run_me_always_monitoring" {
     agent       = false
   }
 
+
   provisioner "remote-exec" {
 
     inline = [

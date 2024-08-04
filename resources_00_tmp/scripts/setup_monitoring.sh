@@ -26,13 +26,6 @@ sudo rm -rf /var/lib/prometheus
 sudo mkdir -p /var/lib/prometheus
 sudo chown -R kafka:kafka /var/lib/prometheus
 
-rm -rf ${KAFKA_HOME_DIR}/softwares/prometheus
-rm -rf ${KAFKA_HOME_DIR}/softwares/dist/prometheus
-rm -rf ${KAFKA_HOME_DIR}/softwares/dist/prometheus-*.tar.gz
-
-tar -xvf  ${KAFKA_HOME_DIR}/resources_00_tmp/lib/prometheus-2.22.0.linux-amd64.tar.gz -C ${KAFKA_HOME_DIR}/softwares/dist
-ln -s ${KAFKA_HOME_DIR}/softwares/dist/prometheus-2.22.0.linux-amd64 ${KAFKA_HOME_DIR}/softwares/prometheus
-
 echo "
 global:
   scrape_interval: 10s
@@ -42,7 +35,7 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['${MASTER_IP}:7071','${WORKER_ONE_IP}:7071','${WORKER_TWO_IP}:7071']
-" > ${KAFKA_HOME_DIR}/resources_00_tmp/lib/prometheus.yml
+" > ${KAFKA_HOME_DIR}/resources_00_tmp/config/prometheus.yml
 
     echo  "
 
@@ -55,7 +48,7 @@ scrape_configs:
     User=kafka
     Type=simple
     ExecStart=${KAFKA_HOME_DIR}/softwares/prometheus/prometheus \
-        --config.file ${KAFKA_HOME_DIR}/resources_00_tmp/lib/prometheus.yml \
+        --config.file ${KAFKA_HOME_DIR}/resources_00_tmp/config/prometheus.yml \
         --storage.tsdb.path /var/lib/prometheus/ \
         --web.console.templates=${KAFKA_HOME_DIR}/softwares/prometheus/consoles \
         --web.console.libraries=${KAFKA_HOME_DIR}/softwares/prometheus/console_libraries

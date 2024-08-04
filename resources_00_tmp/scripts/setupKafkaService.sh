@@ -73,7 +73,7 @@ echo "
 export KAFKA_HOME=$KAFKA_HOME
 export NODE_ID=$NODE_ID
 export KAFKA_HOME_DIR=$KAFKA_HOME_DIR
-export KAFKA_OPTS='-javaagent:${KAFKA_HOME_DIR}/resources_00_tmp/lib/jmx_prometheus_javaagent-1.0.1.jar=7071:${KAFKA_HOME_DIR}/resources_00_tmp/lib/kafka_kraft.yml'
+export KAFKA_OPTS='-javaagent:${KAFKA_HOME_DIR}/softwares/dist/jmx_prometheus_javaagent-1.0.1.jar=7071:${KAFKA_HOME_DIR}/resources_00_tmp/config/kafka_kraft.yml'
 
 export KAFKA_CLUSTER_ID=$(cat /tmp/cluster.id)
 " | sudo tee -a /usr/bin/kafka.sh

@@ -1,6 +1,6 @@
 aws_region="us-east-1"
 instance_type="t2.small"
 master_instance_type="t2.medium"
-ami_image = "ami-0c735865be6a47d24"
+ami_image = "ami-027979a480e532c35"
 pem_file = "/Users/sachin/work/keys/aws/sjlearning_2024/sachin-kp-us-east-1.pem"
 pem_key_name = "sachin-kp-us-east-1"
